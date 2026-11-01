@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#081426">
+<title>Suntik Sosmed Saluran WA</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#081426;color:#f4f7ff}
+header{padding:34px 18px;text-align:center;background:linear-gradient(135deg,#0757c8,#102448)}
+header h1{margin:0;font-size:27px} header p{color:#d6e5ff;line-height:1.5}
+main{max-width:650px;margin:auto;padding:18px}
+.card{background:#111f35;border:1px solid #294366;border-radius:16px;padding:18px;margin:14px 0}
+h2{font-size:19px;margin-top:0;color:#8fc4ff}
+.package{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.price{font-size:20px;font-weight:bold;color:#75b8ff}
+small,.muted{color:#b9c8dc;line-height:1.5}
+label{display:block;margin:12px 0 6px;color:#dce9fb;font-size:14px}
+input,select,textarea{width:100%;padding:13px;border:1px solid #385476;border-radius:9px;background:#09172a;color:white;font:inherit}
+textarea{min-height:85px;resize:vertical}
+button{width:100%;padding:14px;border:0;border-radius:10px;background:#0878ed;color:white;font-size:16px;font-weight:bold;cursor:pointer}
+button:active{transform:scale(.99)}
+.notice{font-size:12px;color:#b9c8dc;line-height:1.5}
+footer{text-align:center;padding:24px;color:#8fa4bf;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <h1>SUNTIK SOSMED SALURAN WA</h1>
+  <p>Layanan promosi saluran WhatsApp dengan cara yang transparan dan sesuai aturan.</p>
+</header>
+<main>
+  <section class="card">
+    <h2>Daftar Layanan</h2>
+    <div class="package"><div><b>Promosi Saluran WA</b><br><small>Promosi melalui kanal/komunitas yang relevan</small></div><span class="price">Hubungi admin</span></div>
+    <hr style="border:0;border-top:1px solid #294366;margin:17px 0">
+    <div class="package"><div><b>Desain poster saluran</b><br><small>Materi promosi untuk dibagikan</small></div><span class="price">Hubungi admin</span></div>
+    <hr style="border:0;border-top:1px solid #294366;margin:17px 0">
+    <div class="package"><div><b>Konsultasi promosi</b><br><small>Saran pertumbuhan organik</small></div><span class="price">Gratis</span></div>
+  </section>
+
+  <section class="card">
+    <h2>Form Pemesanan</h2>
+    <form id="orderForm">
+      <label for="nama">Nama</label>
+      <input id="nama" required placeholder="Nama kamu">
+      <label for="link">Link saluran WhatsApp</label>
+      <input id="link" type="url" required placeholder="https://whatsapp.com/channel/...">
+      <label for="layanan">Pilih layanan</label>
+      <select id="layanan">
+        <option>Promosi Saluran WA</option>
+        <option>Desain poster saluran</option>
+        <option>Konsultasi promosi organik</option>
+      </select>
+      <label for="catatan">Catatan (opsional)</label>
+      <textarea id="catatan" placeholder="Jelaskan kebutuhan promosi kamu"></textarea>
+      <button type="submit">Kirim Pesanan via WhatsApp</button>
+    </form>
+    <p class="notice">Pesanan akan dibuka di WhatsApp untuk dikonfirmasi admin. Website ini tidak otomatis menambah anggota atau mengirim pesan massal.</p>
+  </section>
+</main>
+<footer>© 2026 • Layanan promosi saluran WhatsApp</footer>
+<script>
+const ADMIN_WA = "6283113207451"; // Ganti dengan nomor admin jika diperlukan
+document.getElementById("orderForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const nama = document.getElementById("nama").value.trim();
+  const link = document.getElementById("link").value.trim();
+  const layanan = document.getElementById("layanan").value;
+  const catatan = document.getElementById("catatan").value.trim();
+  const pesan = `Halo admin, saya ingin memesan layanan.\\nNama: ${nama}\\nLink saluran: ${link}\\nLayanan: ${layanan}\\nCatatan: ${catatan || "-"}`;
+  window.open(`https://wa.me/${ADMIN_WA}?text=${encodeURIComponent(pesan)}`, "_blank");
+});
+</script>
+</body>
+</html>
